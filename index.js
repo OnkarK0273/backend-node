@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const signRoute = require("./routes/sign.route");
 const loginRoute = require("./routes/login.route");
-const employeesRoute = require("./routes/employees.route");
+const employeesRoute = require("./routes/quiz.route");
+const quizRoute = require("./routes/quiz.route");
 
 const app = express();
 
@@ -14,19 +15,19 @@ app.use(cors());
 
 // routes
 
-// app.use("/signup",signRoute)
+app.use("/signup",signRoute)
 
-// app.use("/login",loginRoute)
+app.use("/signin",loginRoute)
 
 
-// app.use("/employees",employeesRoute)
+app.use("/quiz",quizRoute)
 
 
 
 
 app.listen(4500, async () => {
     try {
-      await mongoose.connect("mongodb+srv://onkar:onkaratlas@cluster0.xxociih.mongodb.net/moc12?retryWrites=true&w=majority");
+      await mongoose.connect("mongodb+srv://onkar:onkaratlas@cluster0.xxociih.mongodb.net/moc13?retryWrites=true&w=majority");
       console.log("connected db");
     } catch (err) {
       console.log("not-connected");

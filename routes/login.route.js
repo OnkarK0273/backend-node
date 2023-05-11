@@ -19,7 +19,7 @@ loginRoute.post('/',async(req,res)=>{
 
             bcrypt.compare(Password,isLogin.Password,(err,result)=>{
                 if(result){
-                    let token = jwt.sign({userid:isLogin._id},'SECRET_KEY/MOC-12')
+                    let token = jwt.sign({userid:isLogin._id},'SECRET_KEY/MOC-13')
 
                     res.status(200).send({ "token":token});
                 }else{
